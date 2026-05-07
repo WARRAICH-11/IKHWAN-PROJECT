@@ -2,4 +2,4 @@
 2:I[39756,["/IKHWAN-PROJECT/_next/static/chunks/16yw-7u8csdjh.js","/IKHWAN-PROJECT/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
 3:I[37457,["/IKHWAN-PROJECT/_next/static/chunks/16yw-7u8csdjh.js","/IKHWAN-PROJECT/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
 4:[]
-0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"XoFeDG4Dna7HRv0P49gh-"}
+0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"JuS2W1QvOc1R14PxUfXcf"}
