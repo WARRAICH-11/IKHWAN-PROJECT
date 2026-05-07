@@ -18,5 +18,9 @@ export function CartCount() {
     return () => window.removeEventListener("cart-change", update);
   }, []);
 
-  return <Link href="/checkout">Cart ({count})</Link>;
+  return (
+    <Link href="/checkout" aria-label={`Cart with ${count} items`}>
+      Cart ({count})
+    </Link>
+  );
 }

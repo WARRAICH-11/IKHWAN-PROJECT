@@ -1,15 +1,20 @@
 import { listOrders } from "@/lib/order-store";
+import { CategoryDivider } from "@/components/category-divider";
 
 export default async function OrdersPage() {
   const orders = await listOrders();
   return (
-    <main className="container" style={{ padding: "30px 16px 50px" }}>
-      <h1>Orders</h1>
-      <p className="muted">Use this to manually send confirmation emails or review purchases.</p>
-      <section className="stack">
-        {orders.length === 0 ? <p>No orders yet.</p> : null}
+    <main className="raw-main">
+      <CategoryDivider title="Order Records" />
+      <section className="raw-shell">
+        <div className="raw-content raw-intro" data-reveal>
+          <h1>Orders</h1>
+          <p className="raw-muted">Use this to manually send confirmation emails or review purchases.</p>
+        </div>
+        <section className="raw-content raw-form-stack">
+          {orders.length === 0 ? <p>No orders yet.</p> : null}
         {orders.map((order) => (
-          <article key={order.id} className="card pad stack">
+            <article key={order.id} className="raw-cardless raw-form-stack" data-reveal>
             <div style={{ display: "flex", justifyContent: "space-between", gap: 8 }}>
               <strong>{order.orderNumber}</strong>
               <span>{new Date(order.createdAt).toLocaleString()}</span>
@@ -22,8 +27,9 @@ export default async function OrdersPage() {
               </span>
             ))}
             <strong>Total: Rs. {order.total.toLocaleString()}</strong>
-          </article>
+            </article>
         ))}
+        </section>
       </section>
     </main>
   );

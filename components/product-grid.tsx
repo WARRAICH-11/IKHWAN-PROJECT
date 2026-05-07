@@ -3,7 +3,7 @@ import { ProductCard } from "@/components/product-card";
 
 export function ProductGrid({ products }: { products: Product[] }) {
   return (
-    <section className="grid" style={{ paddingBottom: 32 }}>
+    <section className="raw-grid">
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}

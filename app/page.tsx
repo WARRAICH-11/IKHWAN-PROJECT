@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getActiveProducts } from "@/lib/products";
 import { ProductGrid } from "@/components/product-grid";
+import { CategoryDivider } from "@/components/category-divider";
 
 export default function HomePage() {
   const products = getActiveProducts();
@@ -10,38 +11,67 @@ export default function HomePage() {
   const chiffon = products.filter((p) => p.fabric === "chiffon").slice(0, 3);
 
   return (
-    <main className="container">
-      <section className="hero luxury-hero">
-        <p className="tag">Heritage Reimagined</p>
-        <h1>Ikhwan Unstitched Summer Lawn &apos;26 Collection</h1>
-        <p className="muted">Timeless Elegance, Unstitched.</p>
-        <div className="hero-actions">
-          <Link href="/seasonal?season=summer" className="btn">Explore Summer Lawn</Link>
-          <Link href="/elite-circle" className="btn btn-alt">Join Ikhwan Elite Circle</Link>
+    <main className="raw-main">
+      <section className="raw-hero">
+        <div className="raw-blob hero-a" />
+        <div className="raw-blob hero-b" />
+        <div className="raw-hero-inner">
+          <h1 className="raw-hero-line" data-reveal>Ikhwan</h1>
+          <h1 className="raw-hero-line second" data-reveal>Unstitched</h1>
+          <div className="raw-hero-meta" data-reveal>
+            <Link href="/seasonal?season=summer" className="raw-cta">
+              <span>Summer Lawn &apos;26</span>
+            </Link>
+            <Link href="/elite-circle" className="raw-cta">
+              <span>Ikhwan Elite Circle</span>
+            </Link>
+          </div>
         </div>
       </section>
 
-      <section className="section">
-        <h2>Artisanal Drop Calendar</h2>
-        <p className="muted">Upcoming limited-edition Silk releases.</p>
-        <ProductGrid products={silkDrops} />
+      <CategoryDivider title="Summer Lawn" />
+
+      <section className="raw-shell">
+        <div className="raw-content raw-intro" data-reveal>
+          <h2>Artisanal Drop Calendar</h2>
+          <p className="raw-muted">Limited-edition Silk compositions arriving in controlled releases.</p>
+        </div>
+        <div className="raw-content">
+          <ProductGrid products={silkDrops} />
+        </div>
       </section>
 
-      <section className="section">
-        <h2>Crafted for Generations</h2>
-        <p className="muted">Cotton collections built for long-wear structure and graceful drape.</p>
-        <ProductGrid products={cotton} />
+      <CategoryDivider title="Atelier Silk" />
+
+      <section className="raw-shell">
+        <div className="raw-content raw-intro" data-reveal>
+          <h2>Crafted for Generations</h2>
+          <p className="raw-muted">Cotton textiles engineered for enduring structure and tactile authority.</p>
+        </div>
+        <div className="raw-content">
+          <ProductGrid products={cotton} />
+        </div>
       </section>
 
-      <section className="section">
-        <h2>Ethereal Grace</h2>
-        <p className="muted">Chiffon textures with fluid movement and refined layering.</p>
-        <ProductGrid products={chiffon} />
+      <CategoryDivider title="Noor Reserve" />
+
+      <section className="raw-shell">
+        <div className="raw-content raw-intro" data-reveal>
+          <h2>Ethereal Grace</h2>
+          <p className="raw-muted">Chiffon textures with fluid movement and pure editorial presence.</p>
+        </div>
+        <div className="raw-content">
+          <ProductGrid products={chiffon} />
+        </div>
       </section>
 
-      <section className="section">
-        <h2>Featured Collection</h2>
-        <ProductGrid products={featured} />
+      <section className="raw-shell">
+        <div className="raw-content raw-intro" data-reveal>
+          <h2>Featured Collection</h2>
+        </div>
+        <div className="raw-content">
+          <ProductGrid products={featured} />
+        </div>
       </section>
     </main>
   );

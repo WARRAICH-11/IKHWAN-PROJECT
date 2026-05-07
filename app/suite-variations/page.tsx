@@ -1,5 +1,6 @@
 import { ProductGrid } from "@/components/product-grid";
 import { getActiveProducts } from "@/lib/products";
+import { CategoryDivider } from "@/components/category-divider";
 
 export default function SuiteVariationsPage({
   searchParams
@@ -17,10 +18,17 @@ export default function SuiteVariationsPage({
   });
 
   return (
-    <main className="container page">
-      <h1>Suite Variations</h1>
-      <p className="muted">Explore 2-piece and 3-piece unstitched compositions by occasion.</p>
-      <ProductGrid products={products} />
+    <main className="raw-main">
+      <CategoryDivider title="Suite Variations" />
+      <section className="raw-shell">
+        <div className="raw-content raw-intro" data-reveal>
+          <h1>Suite Variations</h1>
+          <p className="raw-muted">Explore 2-piece and 3-piece unstitched compositions by occasion.</p>
+        </div>
+        <div className="raw-content">
+          <ProductGrid products={products} />
+        </div>
+      </section>
     </main>
   );
 }

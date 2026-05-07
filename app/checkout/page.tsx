@@ -3,6 +3,7 @@
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { clearCart, readCart } from "@/lib/cart";
 import { products } from "@/lib/products";
+import { CategoryDivider } from "@/components/category-divider";
 
 type Line = {
   productId: string;
@@ -72,33 +73,34 @@ export default function CheckoutPage() {
   }
 
   return (
-    <main className="container" style={{ padding: "30px 16px 50px" }}>
-      <h1>Checkout</h1>
-      <div className="grid" style={{ alignItems: "start" }}>
-        <section className="card pad stack">
-          <h2 style={{ margin: 0 }}>Customer Details</h2>
-          <form className="stack" onSubmit={onSubmit}>
-            <input className="input" name="customerName" placeholder="Full name" required />
-            <input className="input" name="email" type="email" placeholder="Email" required />
-            <input className="input" name="phone" placeholder="Phone" required />
-            <textarea className="textarea" name="address" placeholder="Shipping address" required rows={4} />
-            <textarea className="textarea" name="notes" placeholder="Notes (optional)" rows={3} />
-            <button disabled={loading} className="btn" type="submit">
-              {loading ? "Placing..." : "Place COD Order"}
-            </button>
-            <small className="muted">{status}</small>
-          </form>
-        </section>
+    <main className="raw-main">
+      <CategoryDivider title="Checkout" />
+      <section className="raw-shell">
+        <div className="raw-content raw-two-col">
+          <section className="raw-cardless raw-form-stack" data-reveal>
+            <h1>Customer Details</h1>
+            <form className="raw-form-stack" onSubmit={onSubmit}>
+              <input className="raw-form-input" name="customerName" placeholder="Full name" required />
+              <input className="raw-form-input" name="email" type="email" placeholder="Email" required />
+              <input className="raw-form-input" name="phone" placeholder="Phone" required />
+              <textarea className="raw-form-textarea" name="address" placeholder="Shipping address" required rows={4} />
+              <textarea className="raw-form-textarea" name="notes" placeholder="Notes (optional)" rows={3} />
+              <button disabled={loading} className="raw-cta" type="submit" aria-label="Place COD order">
+                <span>{loading ? "Placing..." : "Place COD Order"}</span>
+              </button>
+              <small className="raw-muted">{status}</small>
+            </form>
+          </section>
 
-        <section className="card pad stack">
-          <h2 style={{ margin: 0 }}>Order Summary</h2>
+          <section className="raw-cardless raw-form-stack" data-reveal>
+            <h2>Order Summary</h2>
           {lines.map((line) => (
             <div key={line.productId} style={{ display: "flex", justifyContent: "space-between", gap: 8 }}>
               <span>{line.title} x {line.quantity}</span>
               <span>Rs. {(line.unitPrice * line.quantity).toLocaleString()}</span>
             </div>
           ))}
-          <hr style={{ border: 0, borderTop: "1px solid var(--border)" }} />
+            <hr style={{ border: 0, borderTop: "1px solid var(--raw-text)" }} />
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <span>Subtotal</span>
             <strong>Rs. {subtotal.toLocaleString()}</strong>
@@ -111,8 +113,9 @@ export default function CheckoutPage() {
             <span>Total</span>
             <strong>Rs. {total.toLocaleString()}</strong>
           </div>
-        </section>
-      </div>
+          </section>
+        </div>
+      </section>
     </main>
   );
 }

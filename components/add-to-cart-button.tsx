@@ -7,7 +7,8 @@ export function AddToCartButton({ productId }: { productId: string }) {
   const [label, setLabel] = useState("Add to cart");
   return (
     <button
-      className="btn"
+      className="raw-cta"
+      aria-label={`Add product ${productId} to cart`}
       onClick={() => {
         addToCart(productId);
         setLabel("Added");
@@ -15,7 +16,7 @@ export function AddToCartButton({ productId }: { productId: string }) {
       }}
       type="button"
     >
-      {label}
+      <span>{label}</span>
     </button>
   );
 }
