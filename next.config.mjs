@@ -1,11 +1,9 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextconfig = {
+  output: 'export', // Adds static export
   images: {
-    remotePatterns: [
-      { protocol: "https", hostname: "images.unsplash.com" },
-      { protocol: "https", hostname: "cdn.shopify.com" }
-    ]
-  }
+    unoptimized: true, // Required for static export
+  },
 };
 
-export default nextConfig;
+export default nextconfig;
